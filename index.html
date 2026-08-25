@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seer — a face-triggered personal assistant</title>
+<meta name="description" content="Seer recognises you on your own camera and reads your mail, calendar, projects and important messages out loud. A personal, self-hosted assistant.">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo" aria-hidden="true"></div>
+    <h1>Seer</h1>
+  </header>
+  <p class="lede">A personal assistant that recognises you on your own camera, then reads out what actually matters — your mail, your deadlines, your projects, and the few messages worth interrupting you for.</p>
+
+  <nav>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="terms.html">Terms of use</a>
+  </nav>
+
+  <h2>What it does</h2>
+  <p>Seer runs on a personal computer and an Android phone. When its camera recognises the owner returning to their desk after being away, it assembles a short spoken briefing and reads it aloud. Nobody else's face triggers it.</p>
+
+  <div class="card">
+    <table>
+      <tr><th>Source</th><th>What Seer reads</th></tr>
+      <tr><td>Gmail</td><td>Unread inbox mail — sender and subject only</td></tr>
+      <tr><td>College mail</td><td>Mail forwarded into the same Gmail account and tagged with a label</td></tr>
+      <tr><td>Google Calendar</td><td>Events and deadlines in the next few days</td></tr>
+      <tr><td>Projects</td><td>A <code>projects.json</code> file the owner maintains by hand</td></tr>
+      <tr><td>WhatsApp</td><td>Notifications the operating system already shows, filtered to the important ones</td></tr>
+    </table>
+  </div>
+
+  <h2>Which messages count as important</h2>
+  <p>Seer will interrupt for a message from a family contact, anything in a watched group, or anything mentioning a test, assignment, exam, viva, placement or interview. Everything else is held back and summarised once in the evening, then never mentioned again.</p>
+
+  <h2>How it is built</h2>
+  <p>One Flutter codebase compiled for Windows and Android. Face recognition runs entirely on the device: ArcFace via a local Python helper on Windows, ML Kit and MobileFaceNet on Android. Speech uses the operating system's own text-to-speech.</p>
+  <p>There is no Seer server. The application talks only to Google's APIs, using the owner's own account, with read-only permissions.</p>
+
+  <h2>Who it is for</h2>
+  <p>Seer is a personal project built by and for a single user. It is not a commercial product, it is not distributed through any app store, and it is not accepting sign-ups. It is published here because Google requires an OAuth application to have a public home page.</p>
+
+  <h2>Source and contact</h2>
+  <p>Questions about this application or its handling of data can be sent to the address listed on the <a href="privacy.html">privacy policy</a>.</p>
+
+  <footer>
+    Seer — personal software, not a commercial service.<br>
+    <small>Last updated 23 August 2026</small>
+  </footer>
+
+</div>
+</body>
+</html>
