@@ -1,8 +1,13 @@
 {
   "_comment": [
-    "The update manifest. Serve this at https://tacit.app/latest.json .",
+    "The update manifest, served by GitHub Pages at",
+    "https://cleftwitch28.github.io/seer-site/latest.json .",
     "",
-    "Tacit fetches it at most once every 20 hours, sends no identifier and",
+    "The download links use GitHub Releases on this same repo. Before",
+    "bumping a version here, publish a release whose assets carry exactly",
+    "these file names - otherwise the banner offers a link that 404s.",
+    "",
+    "Velra fetches it at most once every 20 hours, sends no identifier and",
     "no version with the request, and never downloads or runs anything from",
     "it - it compares the version and offers a link the user has to click.",
     "",
@@ -21,14 +26,14 @@
 
   "windows": {
     "version": "3.0.0",
-    "url": "https://tacit.app/download/Tacit-Setup-3.0.0.exe",
+    "url": "https://github.com/cleftwitch28/seer-site/releases/download/v3.0.0/Velra-Setup-3.0.0.exe",
     "notes": "First public release.",
     "critical": false
   },
 
   "android": {
     "version": "3.0.0",
-    "url": "https://tacit.app/download/Tacit-3.0.0.apk",
+    "url": "https://github.com/cleftwitch28/seer-site/releases/download/v3.0.0/Velra-3.0.0.apk",
     "notes": "First public release.",
     "critical": false
   }
