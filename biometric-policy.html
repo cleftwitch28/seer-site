@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biometric data retention and destruction policy — Tacit</title>
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo" aria-hidden="true"></div>
+    <h1>Biometric policy</h1>
+  </header>
+  <p class="lede">Written retention and destruction schedule for face data.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="terms.html">Terms of use</a>
+  </nav>
+
+  <p>This document exists because the Illinois Biometric Information Privacy Act requires anyone in possession of biometric identifiers to make a written retention and destruction policy publicly available. It applies to everyone who uses Tacit, not only to people in Illinois, because there is no sensible version of this that is true in one place and not another.</p>
+
+  <h2>What Tacit collects</h2>
+  <p>A <strong>face template</strong>: a list of 512 numbers describing the geometry of your face, produced from a camera frame and stored on the device that produced it.</p>
+  <p>This is a biometric identifier under BIPA, biometric data under the GDPR Article 9, and personal information under comparable laws elsewhere. We are not going to argue otherwise on a technicality.</p>
+
+  <p class="answer">Tacit stores a template, never a photograph. The template is one-way — it cannot be turned back into an image of your face.</p>
+
+  <h2>Why</h2>
+  <p>For one purpose: to recognise that <em>you</em> have sat down at your own computer, so that Tacit can begin a briefing without being asked. That is the entire use.</p>
+  <p>Tacit performs <strong>verification</strong>, not identification. It compares against your enrolled template and stops at the first confident match. It has no database of other people, cannot be pointed at one, and does not attempt to work out who anyone else is. Other faces in frame are counted by the detector — so Tacit can stay quiet when you are not alone — and are never measured, described or stored.</p>
+
+  <h2>Consent</h2>
+  <p>Tacit will not open the camera until you have, inside the application:</p>
+  <ul>
+    <li>been told that it collects and stores a face template,</li>
+    <li>been told the specific purpose and the length of time it will be kept, and</li>
+    <li>given written consent by explicit affirmative action.</li>
+  </ul>
+  <p>The date and version of that consent is recorded on the device. Consent is not bundled into the terms of use and not implied by installing, launching or using anything else — the camera is refused without it, and the refusal happens in the code that would otherwise start the camera, so no route through the application can bypass it.</p>
+
+  <h2>Retention schedule</h2>
+  <p>Your face template is destroyed at whichever of these comes first:</p>
+  <table>
+    <tr><th>Trigger</th><th>What happens</th><th>When</th></tr>
+    <tr><td>You withdraw consent in Settings</td><td>Recognition stops, template deleted</td><td>Immediately</td></tr>
+    <tr><td>You choose "Forget my face"</td><td>Template and enrolment data deleted</td><td>Immediately</td></tr>
+    <tr><td>You uninstall and choose to remove your data</td><td>Entire data folder deleted</td><td>Immediately</td></tr>
+    <tr><td>The purpose is satisfied or you stop using Tacit</td><td>Template deleted</td><td>Within 3 years of your last interaction</td></tr>
+  </table>
+  <p>Three years is the outer limit BIPA permits. In practice the first three rows are how this actually happens, because the data is on your machine and you control it.</p>
+
+  <h2>Disclosure</h2>
+  <p class="answer never">We never sell, lease, trade or otherwise profit from your biometric data, and we never disclose it to anyone.</p>
+  <p>This is not a promise about our intentions. Your face template never leaves the device that created it. It is excluded from sync. There is no Tacit server to send it to. We could not disclose it if we were compelled to, because we do not have it.</p>
+  <p>The only circumstance in which your template leaves your device is if you copy it there yourself.</p>
+
+  <h2>How it is protected</h2>
+  <ul>
+    <li>Stored in your per-user application data folder, under your operating system account's protection.</li>
+    <li>Stored as a template, never as an image. Enrolment frames are deleted once measured.</li>
+    <li>Never transmitted, never synced, never backed up by us.</li>
+    <li>Handled to the same standard as, or better than, the way we handle other confidential information — which is the standard BIPA requires.</li>
+  </ul>
+
+  <h2>What Tacit is not</h2>
+  <ul>
+    <li><strong>Not a security control.</strong> Face matching is a convenience trigger. It compares similarity scores and can be fooled by a similar face or a photograph. Do not use it to protect anything.</li>
+    <li><strong>Not surveillance.</strong> It recognises one enrolled person and counts the rest. It cannot tell you who else was in the room.</li>
+    <li><strong>Not training data.</strong> Nothing measured by Tacit trains any model, ours or anyone else's.</li>
+  </ul>
+
+  <h2>If you would rather not</h2>
+  <p>Decline consent, or withdraw it later, and Tacit still works. You open it instead of it noticing you, and the wake word, voice, reminders, calendar, weather, tasks and the local reasoning model are all unaffected. The camera is a convenience, not a gate.</p>
+
+  <h2>Questions and complaints</h2>
+  <p>Write to <a href="mailto:shyamhfn19@gmail.com">shyamhfn19@gmail.com</a>. If you are in the EU or UK you may also complain to your data protection authority. If you are in Illinois, BIPA gives you a private right of action.</p>
+
+  <h2>Changes</h2>
+  <p>Any change to this policy is published here with a new date. A change that would broaden what is collected or how long it is kept requires fresh consent inside the application before it takes effect for you.</p>
+
+  <p class="updated">Version 1.0 · Last updated 29 August 2026 · Contact: <a href="mailto:shyamhfn19@gmail.com">shyamhfn19@gmail.com</a></p>
+
+  <footer>
+    Tacit · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+  </footer>
+
+</div>
+</body>
+</html>

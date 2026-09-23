@@ -1,10 +1,14 @@
+/* Taken from lib/ui/theme.dart, so the site and the app cannot drift apart.
+   The old palette here was blue, which matched nothing. */
 :root {
-  --bg: #0E1015;
-  --panel: #161A22;
-  --line: #262C39;
+  --bg: #0C0D10;          /* gunmetal900 */
+  --panel: #14161B;       /* gunmetal800 */
+  --line: #2A2E38;        /* gunmetal600 */
   --ink: #E6E8EE;
-  --muted: #98A0B3;
-  --accent: #5B7CFA;
+  --muted: #98A0B3;       /* near steel */
+  --accent: #F0CE7A;      /* paleGold - readable on dark, unlike the red */
+  --red: #E4262B;         /* hotRed */
+  --gold: #D4A02C;
 }
 * { box-sizing: border-box; }
 body {
@@ -36,9 +40,32 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; }
 code { background: #1D2230; padding: 2px 6px; border-radius: 5px; font-size: 14px; }
 footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+/* The app mark, in CSS: a red field with a gold caret. Drawn rather than
+   linked so the pages stay self-contained and work from file:// - the
+   installer drops them into the program folder and the Start menu opens
+   them from there. */
 .logo {
-  width: 40px; height: 40px; border-radius: 10px; flex: none;
-  background: radial-gradient(circle at 50% 50%, #8AA2FF 0 18%, transparent 19%),
-              conic-gradient(from 20deg, #5B7CFA, #3D5BD0, #5B7CFA);
-  border: 1px solid #3D5BD0;
+  width: 44px; height: 44px; border-radius: 11px; flex: none;
+  background: var(--red);
+  border: 1px solid #FF5A3C;
+  position: relative;
 }
+.logo::after {
+  content: "";
+  position: absolute; left: 50%; top: 54%;
+  width: 17px; height: 17px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: 4.5px solid #F0CE7A;
+  border-left: 4.5px solid #F0CE7A;
+  border-radius: 2px;
+}
+
+/* A short, plain-language answer set off from the reasoning around it. */
+.answer {
+  border-left: 3px solid var(--gold);
+  padding: 2px 0 2px 16px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.never { border-left-color: var(--red); }
+.updated { margin-top: 40px; font-size: 14px; color: var(--muted); }

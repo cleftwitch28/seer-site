@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seer — a face-triggered personal assistant</title>
-<meta name="description" content="Seer recognises you on your own camera and reads your mail, calendar, projects and important messages out loud. A personal, self-hosted assistant.">
+<title>Tacit — it notices you sat down, and tells you what changed</title>
+<meta name="description" content="Tacit recognises you at your own desk and reads out what actually changed — mail, deadlines, tasks and the few messages worth interrupting you for. Everything runs on your machine. No server, no account.">
 <link rel="stylesheet" href="_style.css">
 </head>
 <body>
@@ -12,45 +12,76 @@
 
   <header>
     <div class="logo" aria-hidden="true"></div>
-    <h1>Seer</h1>
+    <h1>Tacit</h1>
   </header>
-  <p class="lede">A personal assistant that recognises you on your own camera, then reads out what actually matters — your mail, your deadlines, your projects, and the few messages worth interrupting you for.</p>
+  <p class="lede">It notices you sat down, and tells you what changed. Your mail, your deadlines, your tasks, and the few messages worth interrupting you for — spoken, before you have opened anything.</p>
 
   <nav>
+    <a href="#what">What it does</a>
+    <a href="#private">Why it is private</a>
+    <a href="#pricing">Pricing</a>
     <a href="privacy.html">Privacy policy</a>
     <a href="terms.html">Terms of use</a>
+    <a href="biometric-policy.html">Biometric policy</a>
   </nav>
 
-  <h2>What it does</h2>
-  <p>Seer runs on a personal computer and an Android phone. When its camera recognises the owner returning to their desk after being away, it assembles a short spoken briefing and reads it aloud. Nobody else's face triggers it.</p>
+  <h2 id="what">What it does</h2>
+  <p>Tacit runs on your computer and, if you want, your phone. When its camera recognises you coming back to your desk, it assembles a short spoken briefing and reads it out. Nobody else's face triggers it.</p>
+  <p>The rest of the time it stays out of the way. Say the wake word and ask it something; it answers using a reasoning model running on your own hardware.</p>
 
   <div class="card">
     <table>
-      <tr><th>Source</th><th>What Seer reads</th></tr>
-      <tr><td>Gmail</td><td>Unread inbox mail — sender and subject only</td></tr>
-      <tr><td>College mail</td><td>Mail forwarded into the same Gmail account and tagged with a label</td></tr>
-      <tr><td>Google Calendar</td><td>Events and deadlines in the next few days</td></tr>
-      <tr><td>Projects</td><td>A <code>projects.json</code> file the owner maintains by hand</td></tr>
-      <tr><td>WhatsApp</td><td>Notifications the operating system already shows, filtered to the important ones</td></tr>
+      <tr><th>Source</th><th>What Tacit reads</th></tr>
+      <tr><td>Mail</td><td>Unread inbox mail — sender and subject only</td></tr>
+      <tr><td>Calendar</td><td>Events and deadlines in the next few days</td></tr>
+      <tr><td>Tasks</td><td>What is pending, and what you were actually working on</td></tr>
+      <tr><td>Screen activity</td><td>Where your time went, from window titles</td></tr>
+      <tr><td>Messages</td><td>Notifications your system already shows, filtered to the ones that matter</td></tr>
+      <tr><td>Weather, water</td><td>Because you will not drink any otherwise</td></tr>
     </table>
   </div>
 
-  <h2>Which messages count as important</h2>
-  <p>Seer will interrupt for a message from a family contact, anything in a watched group, or anything mentioning a test, assignment, exam, viva, placement or interview. Everything else is held back and summarised once in the evening, then never mentioned again.</p>
+  <h2 id="private">Why it is private, in a way you can check</h2>
+
+  <p class="answer">There is no Tacit server. There is nothing to sign up for. Nothing you say, read or do reaches us, because there is nowhere for it to go.</p>
+
+  <p>That is an architectural claim, not a promise, and it is worth being specific about what backs it:</p>
+  <ul>
+    <li>The face model, the speech, the transcription and the reasoning model all run on your machine. Not a hosted API with a privacy policy — on your machine.</li>
+    <li>Camera frames become numbers and are deleted within about a second. A template is stored; an image never is.</li>
+    <li>Tacit recognises <em>you</em>. It stops at the first confident match and never tries to identify anyone else who walks past.</li>
+    <li>Your licence is verified offline by a signed file. Tacit does not phone home to check it, which means it keeps working if we vanish.</li>
+    <li>No analytics, no telemetry, no crash reporting. We cannot tell how many people use this.</li>
+  </ul>
+  <p>Face recognition is off until you give written consent inside the application, and can be withdrawn at any time. See the <a href="biometric-policy.html">biometric policy</a> for exactly what is kept and for how long.</p>
+
+  <h2 id="pricing">Free and paid</h2>
+  <p>The free tier does not expire and is not a trial. It is a smaller version of the same program.</p>
+  <div class="card">
+    <table>
+      <tr><th></th><th>Free</th><th>Paid</th></tr>
+      <tr><td>Presence-triggered briefing</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Local voice and wake word</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Calendar, tasks, water, weather</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>On-device reasoning model</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Screen activity</td><td>Last 24 hours</td><td>Full 14-day history and trends</td></tr>
+      <tr><td>Devices</td><td>One</td><td>Desktop and phone, paired</td></tr>
+      <tr><td>Mail</td><td>—</td><td>Yes</td></tr>
+      <tr><td>Custom wake word</td><td>—</td><td>Yes</td></tr>
+      <tr><td>Export and data map</td><td>Yes</td><td>Yes</td></tr>
+    </table>
+  </div>
+  <p>Nothing that runs on your own hardware is ever gated. Paying buys the memory and the reach — continuity across days, and across your devices — not permission to use your own processor.</p>
 
   <h2>How it is built</h2>
-  <p>One Flutter codebase compiled for Windows and Android. Face recognition runs entirely on the device: ArcFace via a local Python helper on Windows, ML Kit and MobileFaceNet on Android. Speech uses the operating system's own text-to-speech.</p>
-  <p>There is no Seer server. The application talks only to Google's APIs, using the owner's own account, with read-only permissions.</p>
+  <p>One Flutter codebase compiled for Windows and Android, with a local helper process for the models. Face recognition uses ArcFace on the desktop and MobileFaceNet on Android. Reasoning is a quantised model through llama.cpp. Speech is neural and local.</p>
 
-  <h2>Who it is for</h2>
-  <p>Seer is a personal project built by and for a single user. It is not a commercial product, it is not distributed through any app store, and it is not accepting sign-ups. It is published here because Google requires an OAuth application to have a public home page.</p>
-
-  <h2>Source and contact</h2>
-  <p>Questions about this application or its handling of data can be sent to the address listed on the <a href="privacy.html">privacy policy</a>.</p>
+  <h2>Contact</h2>
+  <p>Questions about the application or how it handles data: <a href="mailto:shyamhfn19@gmail.com">shyamhfn19@gmail.com</a></p>
 
   <footer>
-    Seer — personal software, not a commercial service.<br>
-    <small>Last updated 23 August 2026</small>
+    Tacit — everything runs on your machine.<br>
+    <small>Last updated 29 August 2026</small>
   </footer>
 
 </div>

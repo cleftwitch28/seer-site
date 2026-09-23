@@ -1,0 +1,35 @@
+{
+  "_comment": [
+    "The update manifest. Serve this at https://tacit.app/latest.json .",
+    "",
+    "Tacit fetches it at most once every 20 hours, sends no identifier and",
+    "no version with the request, and never downloads or runs anything from",
+    "it - it compares the version and offers a link the user has to click.",
+    "",
+    "Store builds ignore this file entirely; Microsoft and Google do their",
+    "own updates and a second updater arguing with theirs is a policy",
+    "problem on Play.",
+    "",
+    "'url' MUST be https. A manifest is a remote file, and the client",
+    "refuses any other scheme rather than put an arbitrary one in front of",
+    "the user.",
+    "",
+    "Set 'critical' only for a release that fixes something serious. It",
+    "overrides a version the user has dismissed. It still waits to be",
+    "clicked - nothing here installs anything."
+  ],
+
+  "windows": {
+    "version": "3.0.0",
+    "url": "https://tacit.app/download/Tacit-Setup-3.0.0.exe",
+    "notes": "First public release.",
+    "critical": false
+  },
+
+  "android": {
+    "version": "3.0.0",
+    "url": "https://tacit.app/download/Tacit-3.0.0.apk",
+    "notes": "First public release.",
+    "critical": false
+  }
+}
